@@ -1,9 +1,11 @@
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   color: #333;
-  background: url('../assets/images/abstract-gradient-background.jpg') center/cover no-repeat;
+  background: url('../assets/images/colorful-mesh-gradient-background.jpg') center/cover no-repeat;
   background-attachment: fixed;
   color: #333;
   background-repeat: no-repeat;
