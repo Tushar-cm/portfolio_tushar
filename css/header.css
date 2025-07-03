@@ -1,4 +1,4 @@
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -174,4 +174,162 @@
 
 
 
-  
+   */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+    z-index: 1000;
+}
+
+.header.scrolled {
+    background-color: #501A6D;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #007acc;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #007acc;
+    transition: width 0.4s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 19px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* Animate to "X" when menu is toggled */
+#menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    font-size: 17.416px;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 1.04;
+    gap: 20px;
+}
+
+.header-right ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.header-right ul li {
+    display: inline;
+}
+
+.header-right ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+.header-right ul li a:hover {
+    color: #007acc;
+}
+
+.header-right ul li a.active {
+    color: #007acc;
+    border-bottom: 2px solid #007acc;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .header-right {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding-top: 50px;
+        transition: left 0.4s ease-in-out;
+        z-index: 10;
+    }
+
+    .header-right ul {
+        flex-direction: column;
+        gap: 15px;
+        background-color: #ffffff;
+        padding-left: 20px;
+    }
+
+    #menu-toggle:checked ~ .header-right {
+        left: 0;
+    }
+}
